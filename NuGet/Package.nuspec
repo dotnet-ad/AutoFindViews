@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>AutoFindViews</id>
+    <version>$version$</version>
+    <title>AutoFindViews</title>
+    <authors>Aloïs Deniel</authors>
+    <owners>Aloïs Deniel</owners>
+    <licenseUrl>https://github.com/aloisdeniel/AutoFindViews/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/aloisdeniel/AutoFindViews/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/aloisdeniel/AutoFindViews/master/Documentation/Logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Have you ever counted the number of times your wrote 'FindViewById' in your Xamarin.Android project?</description>
+    <copyright>Copyright 2017</copyright>
+    <tags>android xamarin generator findviewbyid identifier</tags>
+  </metadata>
+   <files>
+     <!-- Android -->
+		 <file src="..\Sources\AutoFindViews.Build\bin\Release\AutoFindViews.targets" target="build\MonoAndroid10\AutoFindViews.targets"/>
+     <file src="..\Sources\AutoFindViews.Build\bin\Release\Newtonsoft.Json.dll" target="Newtonsoft.Json.dll" />
+     <file src="..\Sources\AutoFindViews.Build\bin\Release\AutoFindViews.Build.dll" target="AutoFindViews.Build.dll" />
+   </files>
+</package>

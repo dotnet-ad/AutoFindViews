@@ -1,0 +1,26 @@
+﻿namespace {0}
+{{
+    // {1}.axml
+    [System.CodeDom.Compiler.GeneratedCode("AutoFindViews", "0.1.0.0")]
+    public class {2} : ILayoutHolder
+    {{
+        #region Fields
+
+{3}        #endregion
+
+        #region Properties
+
+        public int Identifier {{ get; }} = Resource.Layout.{1};
+
+        public Android.Views.View Source {{ get; set; }}
+
+{4}        #endregion
+
+        public {2}() {{}}
+
+        public {2}(Android.Views.View source)
+        {{
+            this.Source = source;
+        }}
+    }}
+}}

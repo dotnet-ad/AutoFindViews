@@ -1,0 +1,26 @@
+namespace AutoFindViews.Sample
+{
+    using System;
+
+    [System.CodeDom.Compiler.GeneratedCode("AutoFindViews", "0.1.0.0")]
+    public interface ILayoutHolder
+    {
+        int Identifier { get; }
+
+        Android.Views.View Source { get; set; }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("AutoFindViews", "0.1.0.0")]
+    public static class MainLayoutHolderExtensions
+    {
+        public static TLayoutHolder SetContentView<TLayoutHolder>(this Android.App.Activity activity) 
+            where TLayoutHolder : ILayoutHolder
+        {
+            var holder = Activator.CreateInstance<TLayoutHolder>();
+            activity.SetContentView(holder.Identifier);
+            var root = activity.FindViewById(Android.Resource.Id.Content);
+            holder.Source = root;
+            return holder;
+        }
+    }
+}
