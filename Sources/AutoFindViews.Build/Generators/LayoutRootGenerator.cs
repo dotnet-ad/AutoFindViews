@@ -5,15 +5,12 @@
 
 	public class LayoutRootGenerator
 	{
-		public LayoutRootGenerator(Project project, string nspace)
+		public LayoutRootGenerator(string nspace)
 		{
-			this.project = project;
 			this.nspace = nspace;
 		}
 
 		private string nspace;
-
-		private Project project;
 
 		/// <summary>
 	 	/// Generates the layout holder class from the axml file.
@@ -21,7 +18,8 @@
 		/// <param name="xml">Axml content.</param>
 		public bool Generate(string outputPath)
 		{
-			const string name = "Layouts.Designer.cs";
+			const string name = "Layouts.g.cs";
+			const string template = "Layouts.Designer.cs";
 			var parent = Directory.GetParent(outputPath).ToString();
 			var path = Path.Combine(parent, name);
 
@@ -31,18 +29,15 @@
 				Directory.CreateDirectory(parent);
 			}
 
-			var projectNeedsSave = this.project.AddItemIfNotExists("Folder", parent);
-
 			if (!File.Exists(path))
 			{
-				var content = Templates.LoadTemplate(name);
+				var content = Templates.LoadTemplate(template);
 				content = string.Format(content, nspace);
 				File.WriteAllText(path, content);
+				return true;
 			}
 
-			projectNeedsSave |= this.project.AddItemIfNotExists("Compile", path);
-
-			return projectNeedsSave;
+			return false;
 		}
 	}
 }

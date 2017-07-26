@@ -25,21 +25,21 @@
         </ItemGroup>
         <ItemGroup>
 			<RelativeLayoutFiles Include="$([System.IO.Path]::GetFileName('%(LayoutFiles.Identity)'))" />
-            <LayoutGFiles Include="@(RelativeLayoutFiles->'$(ProjectDir)\Layouts\%(Identity).Designer.cs')"/>
+            <LayoutGFiles Include="@(RelativeLayoutFiles->'$(IntermediateOutputPath)\Layouts\%(Identity).g.cs')"/>
             <Compile Include="@(LayoutGFiles)"/>
-            <Compile Include="$(ProjectDir)\Layouts\Layouts.Designer.cs"/>
+            <Compile Include="$(IntermediateOutputPath)\Layouts\Layouts.g.cs"/>
         </ItemGroup>
     </Target>
 
     <Target 
         Name="_CoreLayoutHolderG"
         Inputs = "@(LayoutFiles)"
-        Outputs = "$(ProjectDir)\Layouts\$([System.IO.Path]::GetFileName('%(Identity)')).Designer.cs">
+        Outputs = "$(IntermediateOutputPath)\Layouts\$([System.IO.Path]::GetFileName('%(Identity)')).g.cs">
         <AutoFindViewsTask
             Source="@(LayoutFiles)"
 			ProjectPath="$(ProjectPath)"
 			Namespace="$(RootNamespace)"
-            OutputFile = "$(ProjectDir)\Layouts\$([System.IO.Path]::GetFileName('%(Identity)')).Designer.cs">
+            OutputFile = "$(IntermediateOutputPath)\Layouts\$([System.IO.Path]::GetFileName('%(Identity)')).g.cs">
         </AutoFindViewsTask>
     </Target>
     

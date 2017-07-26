@@ -31,8 +31,6 @@
 
 		private Configuration configuration;
 
-		private Project project;
-
 		#endregion
 
 		/// <summary>
@@ -58,25 +56,15 @@
 			{
 				this.ReadConfig();
 
-				Log.LogMessage($"Loading csproj : {this.ProjectPath}");
-
-				this.project = ProjectCollection.GlobalProjectCollection.LoadedProjects.FirstOrDefault(x => x.FullPath == this.ProjectPath) ?? new Project(this.ProjectPath);
-
 				Log.LogMessage($"Loading xml : {this.Source.ItemSpec}");
 
 				var mapper = new TypeMapper(this.configuration.Mapping);
 
-				var rootGen = new LayoutRootGenerator(project,Namespace);
-				var layoutGen = new LayoutHolderGenerator(project,mapper,Namespace);
+				var rootGen = new LayoutRootGenerator(Namespace);
+				var layoutGen = new LayoutHolderGenerator(mapper,Namespace);
 
-				var projectNeedsSave = rootGen.Generate(this.OutputFile);
-				projectNeedsSave |= layoutGen.Generate(this.Source.ItemSpec, this.OutputFile);
-
-				if (projectNeedsSave)
-				{
-					Log.LogMessage($"Saving csproj : {this.ProjectPath}");
-					this.project.Save();
-				}
+				rootGen.Generate(this.OutputFile);
+				layoutGen.Generate(this.Source.ItemSpec, this.OutputFile);
 
 				return true;
 			}
