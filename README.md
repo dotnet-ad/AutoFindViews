@@ -1,4 +1,6 @@
-# AutoFindViews *for Xamarin.Android*
+![Logo](Documentation/Logo.png)
+
+### *for Xamarin.Android*
 
 Have you ever counted the number of times your wrote `FindViewById` in your **Xamarin.Android** project? Writing repetitive code is so boring ... **AutoFindFindViews** will generate all this boilerplate code for you.
 
