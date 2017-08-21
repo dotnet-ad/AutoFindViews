@@ -16,7 +16,7 @@ As soon as you added the reference to the [NuGet package](https://www.nuget.org/
 
 **Warning:** files are generated only during build.
 
-**Warning:** auto-completion can be broken, just reopen your view files that reference your layouts.
+**Warning:** auto-completion can be broken (visual studio doesn't reload files at build time), is it occcurs, unload then reload the project.
 
 ![illustration](Documentation/illustration.png)
 

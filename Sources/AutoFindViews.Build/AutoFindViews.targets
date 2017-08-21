@@ -8,6 +8,13 @@
         </CoreCompileDependsOn>
     </PropertyGroup>
 
+	<PropertyGroup>
+        <CleanDependsOn>
+            LayoutHolderClean;
+            $(LayoutHolderClean);
+        </CleanDependsOn>
+    </PropertyGroup>
+
     <!-- Layouts -->
     
     <Target Name="LayoutHolderG" DependsOnTargets="$(TxmlGDependsOn)"/>
@@ -42,5 +49,11 @@
             OutputFile = "$(IntermediateOutputPath)\Layouts\$([System.IO.Path]::GetFileName('%(Identity)')).g.cs">
         </AutoFindViewsTask>
     </Target>
+
+	<!-- Clean layouts -->
+
+    <Target Name="LayoutHolderClean">
+        <RemoveDir Directories="$(IntermediateOutputPath)\Layouts" />
+	</Target>
     
 </Project>
