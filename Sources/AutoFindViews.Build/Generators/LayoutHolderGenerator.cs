@@ -4,6 +4,7 @@
 	using System.Xml.Linq;
 	using System.IO;
 	using System.Text;
+	using AutoFindViews.Build.Helper;
 	using Microsoft.Build.Evaluation;
 
 	public class LayoutHolderGenerator
@@ -68,7 +69,7 @@
 			}
 
 			content = string.Format(content, nspace, name, classname, fields, properties);
-			File.WriteAllText(outputPath, content);
+			FileHelper.WriteIfDifferent(outputPath, content);
 
 			return true;
 		}

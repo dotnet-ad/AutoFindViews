@@ -51,6 +51,7 @@
     <Compile Include="Generators\Templates\Templates.cs" />
     <Compile Include="Generators\LayoutHolderGenerator.cs" />
     <Compile Include="Generators\LayoutRootGenerator.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -59,6 +60,7 @@
     <Folder Include="Declarations\" />
     <Folder Include="Generators\" />
     <Folder Include="Generators\Templates\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Generators\Templates\LayoutHolder_Designer_cs.template" />
