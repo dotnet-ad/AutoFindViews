@@ -1426,6 +1426,9 @@ namespace AutoFindViews.Sample
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0c0060
+			public const int SubTitleTest = 2131492960;
+			
 			// aapt resource value: 0x7f0c0053
 			public const int action0 = 2131492947;
 			

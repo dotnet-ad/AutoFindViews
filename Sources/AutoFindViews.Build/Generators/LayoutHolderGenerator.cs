@@ -18,7 +18,7 @@
 		public static string CreateClassName(string name)
 		{
 			var spits = name.Split('_');
-			name = string.Join("",spits.Select(x => x.FirstLetterToUpper()));
+			name = string.Join("", spits.Select(x => x.FirstLetterToUpper()));
 			return $"{name}LayoutHolder";
 		}
 
@@ -39,11 +39,6 @@
 			var name = Path.GetFileNameWithoutExtension(inputPath);
 			var classname = CreateClassName(name);
 
-			if (File.Exists(outputPath))
-			{
-				File.Delete(outputPath);
-			}
-
 			var content = Templates.LoadTemplate(template);
 
 			var declarations = ViewPropertyDeclaration.ParseDeclarations(xml, mapper);
@@ -57,7 +52,7 @@
 				properties.AppendLine($"\t\t// L{declaration.Line}: {declaration.Source}");
 				properties.Append($"\t\tpublic {declaration.Type} {declaration.Id} => _{declaration.Id} ?? (_{declaration.Id} = ");
 
-				if(declaration.IsInclude)
+				if (declaration.IsInclude)
 				{
 					properties.AppendLine($"new {declaration.Type}(Source.FindViewById<Android.Views.View>(Resource.Id.{declaration.Id})));\n");
 				}
@@ -69,9 +64,8 @@
 			}
 
 			content = string.Format(content, nspace, name, classname, fields, properties);
-			FileHelper.WriteIfDifferent(outputPath, content);
 
-			return true;
+			return FileHelper.WriteIfDifferent(outputPath, content);
 		}
 	}
 }

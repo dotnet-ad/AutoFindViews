@@ -41,7 +41,7 @@
 			var projectFolder = Path.GetDirectoryName(this.ProjectPath);
 			var path = Path.Combine(projectFolder, "AutoFindViews.config");
 			this.configuration = Configuration.Load(path);
-			Log.LogMessage($"Custom mapping : {string.Join(", ",this.configuration.Mapping.Select(x => $"{x.Key}={x.Value}"))}");
+			Log.LogMessage($"Custom mapping : {string.Join(", ", this.configuration.Mapping.Select(x => $"{x.Key}={x.Value}"))}");
 		}
 
 		public override bool Execute()
@@ -61,10 +61,15 @@
 				var mapper = new TypeMapper(this.configuration.Mapping);
 
 				var rootGen = new LayoutRootGenerator(Namespace);
-				var layoutGen = new LayoutHolderGenerator(mapper,Namespace);
+				var layoutGen = new LayoutHolderGenerator(mapper, Namespace);
 
 				rootGen.Generate(this.OutputFile);
-				layoutGen.Generate(this.Source.ItemSpec, this.OutputFile);
+				var result = layoutGen.Generate(this.Source.ItemSpec, this.OutputFile);
+
+				if (!result)
+				{
+					Log.LogMessage($"Skipping generation of {OutputFile} because there is not relevant change in {Source.ItemSpec}.");
+				}
 
 				return true;
 			}

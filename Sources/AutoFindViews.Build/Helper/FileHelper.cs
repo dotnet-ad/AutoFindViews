@@ -6,7 +6,7 @@ namespace AutoFindViews.Build.Helper
 {
 	public static class FileHelper
 	{
-		public static void WriteIfDifferent(string file, string content)
+		public static bool WriteIfDifferent(string file, string content)
 		{
 			if (File.Exists(file))
 			{
@@ -15,7 +15,7 @@ namespace AutoFindViews.Build.Helper
 					string actualContent = reader.ReadToEnd();
 					if (actualContent == content)
 					{
-						return;
+						return false;
 					}
 				}
 				File.Delete(file);
@@ -25,6 +25,7 @@ namespace AutoFindViews.Build.Helper
 			{
 				writer.Write(content);
 			}
+			return true;
 		}
 	}
 }
