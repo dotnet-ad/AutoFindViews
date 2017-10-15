@@ -17,7 +17,7 @@
    <files>
      <!-- Android -->
 		 <file src="..\Sources\AutoFindViews.Build\bin\Release\AutoFindViews.targets" target="build\MonoAndroid10\AutoFindViews.targets"/>
-     <file src="..\Sources\AutoFindViews.Build\bin\Release\Newtonsoft.Json.dll" target="Newtonsoft.Json.dll" />
-     <file src="..\Sources\AutoFindViews.Build\bin\Release\AutoFindViews.Build.dll" target="AutoFindViews.Build.dll" />
+     <file src="..\Sources\AutoFindViews.Build\bin\Release\Newtonsoft.Json.dll" target="build\MonoAndroid10\Newtonsoft.Json.dll" />
+     <file src="..\Sources\AutoFindViews.Build\bin\Release\AutoFindViews.Build.dll" target="build\MonoAndroid10\AutoFindViews.Build.dll" />
    </files>
 </package>
