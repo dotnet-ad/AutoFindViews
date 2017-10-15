@@ -21,7 +21,7 @@
 
     <Target Name="_CollectLayoutFiles">
         <ItemGroup>
-            <LayoutFiles Include="@(AndroidResource)" Condition="'%(Extension)' == '.axml' And $([System.IO.Path]::GetFileName($([System.IO.Path]::GetDirectoryName('%(Identity)')))) == 'Layout'"/>
+            <LayoutFiles Include="@(AndroidResource)" Condition="('%(Extension)' == '.axml' Or '%(Extension)' == '.xml') And $([System.IO.Path]::GetFileName($([System.IO.Path]::GetDirectoryName('%(Identity)')))) == 'Layout'"/>
         </ItemGroup>
         <ItemGroup>
 			<RelativeLayoutFiles Include="$([System.IO.Path]::GetFileName('%(LayoutFiles.Identity)'))" />
