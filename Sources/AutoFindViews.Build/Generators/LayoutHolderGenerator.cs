@@ -8,9 +8,8 @@
 
 	public class LayoutHolderGenerator
 	{
-		public LayoutHolderGenerator(Project project, ITypeMapper mapper, string nspace)
+		public LayoutHolderGenerator(ITypeMapper mapper, string nspace)
 		{
-			this.project = project;
 			this.mapper = mapper;
 			this.nspace = nspace;
 		}
@@ -21,8 +20,6 @@
 			name = string.Join("",spits.Select(x => x.FirstLetterToUpper()));
 			return $"{name}LayoutHolder";
 		}
-
-		private Project project;
 
 		private ITypeMapper mapper;
 
@@ -73,7 +70,7 @@
 			content = string.Format(content, nspace, name, classname, fields, properties);
 			File.WriteAllText(outputPath, content);
 
-			return project.AddItemIfNotExists("Compile", outputPath);
+			return true;
 		}
 	}
 }

@@ -13,9 +13,9 @@
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-		
+
 			this.Layout = this.SetContentView<MainLayoutHolder>();
-			var r = this.Layout.root5;
+			this.Layout.included.title.Text = "sub layout title";
 
 			this.Layout.myButton.Click += delegate { this.Layout.myButton.Text = $"{count++} clicks!"; };
 		}

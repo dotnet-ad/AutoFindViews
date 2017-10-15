@@ -10,11 +10,11 @@ Available on NuGet
 
 ## Usage
 
-As soon as you added the reference to the [NuGet package](https://www.nuget.org/packages/AutoFindViews/), a target is added to your project that generates a classes in a `Layout` folder in your project for each one of you `.axml` layout file.
+As soon as you added the reference to the [NuGet package](https://www.nuget.org/packages/AutoFindViews/), a target is added to your project that generates a classes in a `Layout` folder in your project output dir (`obj`) for each one of you `.axml` layout file.
 
 **Warning:** files are generated only during build.
 
-**Warning:** Visual Studio doesn't always update the project after build, make sure to reload project if you've added new layout files and associated classes aren't visible yet.
+**Warning:** auto-completion can be broken, just reopen your view files that reference your layouts.
 
 ![illustration](Documentation/illustration.png)
 
