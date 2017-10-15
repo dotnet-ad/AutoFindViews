@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02200DFD-207A-43E6-BBFA-EE049FB9D3C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AutoFindViews.Build</RootNamespace>
+    <AssemblyName>AutoFindViews.Build</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AutoFindViewsTask.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Configurations\Configuration.cs" />
+    <Compile Include="Extensions\ProjectExtensions.cs" />
+    <Compile Include="Mapping\TypeMapper.cs" />
+    <Compile Include="Mapping\ITypeMapper.cs" />
+    <Compile Include="Declarations\ViewPropertyDeclaration.cs" />
+    <Compile Include="Generators\Templates\Templates.cs" />
+    <Compile Include="Generators\LayoutHolderGenerator.cs" />
+    <Compile Include="Generators\LayoutRootGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Configurations\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="Declarations\" />
+    <Folder Include="Generators\" />
+    <Folder Include="Generators\Templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Generators\Templates\LayoutHolder_Designer_cs.template" />
+    <EmbeddedResource Include="Generators\Templates\Layouts_Designer_cs.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AutoFindViews.targets">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

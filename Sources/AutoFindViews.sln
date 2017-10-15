@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFindViews.Sample", "AutoFindViews.Sample\AutoFindViews.Sample.csproj", "{E3040839-AA3B-43DC-8506-76097A7D6435}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFindViews.Build", "AutoFindViews.Build\AutoFindViews.Build.csproj", "{02200DFD-207A-43E6-BBFA-EE049FB9D3C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3040839-AA3B-43DC-8506-76097A7D6435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3040839-AA3B-43DC-8506-76097A7D6435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3040839-AA3B-43DC-8506-76097A7D6435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3040839-AA3B-43DC-8506-76097A7D6435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02200DFD-207A-43E6-BBFA-EE049FB9D3C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02200DFD-207A-43E6-BBFA-EE049FB9D3C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02200DFD-207A-43E6-BBFA-EE049FB9D3C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02200DFD-207A-43E6-BBFA-EE049FB9D3C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
