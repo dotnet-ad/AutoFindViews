@@ -6,7 +6,7 @@ Have you ever counted the number of times your wrote `FindViewById` in your **Xa
 
 Available on NuGet
 
-[![NuGet](https://img.shields.io/nuget/v/AutoFindViews?label=NuGet)](https://www.nuget.org/packages/AutoFindViews/)
+[![NuGet](https://img.shields.io/nuget/v/AutoFindViews.svg?label=NuGet)](https://www.nuget.org/packages/AutoFindViews/)
 
 ## Usage
 
