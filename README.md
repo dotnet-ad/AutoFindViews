@@ -1,14 +1,14 @@
 ![Logo](Documentation/Logo.png)
 
+[![NuGet](https://img.shields.io/nuget/v/AutoFindViews.svg?label=NuGet)](https://www.nuget.org/packages/AutoFindViews/) [![Donate](https://img.shields.io/badge/donate-paypal-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ZJZKXPPGBKKAY&lc=US&item_name=GitHub&item_number=0000001&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
+
 ### *for Xamarin.Android*
 
 Have you ever counted the number of times your wrote `FindViewById` in your **Xamarin.Android** project? Writing repetitive code is so boring ... **AutoFindFindViews** will generate all this boilerplate code for you.
 
 ## Install
 
-Available on NuGet
-
-[![NuGet](https://img.shields.io/nuget/v/AutoFindViews.svg?label=NuGet)](https://www.nuget.org/packages/AutoFindViews/)
+Available on [NuGet](https://www.nuget.org/packages/AutoFindViews/).
 
 ## Usage
 
