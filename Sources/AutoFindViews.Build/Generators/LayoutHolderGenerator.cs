@@ -4,7 +4,6 @@
 	using System.Xml.Linq;
 	using System.IO;
 	using System.Text;
-	using AutoFindViews.Build.Helper;
 	using Microsoft.Build.Evaluation;
 
 	public class LayoutHolderGenerator
@@ -38,7 +37,10 @@
 
 			var name = Path.GetFileNameWithoutExtension(inputPath);
 			var classname = CreateClassName(name);
-
+			if (File.Exists(outputPath))
+				         {
+				File.Delete(outputPath);
+				           }
 			var content = Templates.LoadTemplate(template);
 
 			var declarations = ViewPropertyDeclaration.ParseDeclarations(xml, mapper);
@@ -66,8 +68,9 @@
 			}
 
 			content = string.Format(content, nspace, name, classname, fields, properties, disposing);
+			File.WriteAllText(outputPath,content);
 
-			return FileHelper.WriteIfDifferent(outputPath, content);
+			return true;
 		}
 	}
 }

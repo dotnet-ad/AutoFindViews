@@ -64,14 +64,7 @@
 				var layoutGen = new LayoutHolderGenerator(mapper, Namespace);
 
 				rootGen.Generate(this.OutputFile);
-				var result = layoutGen.Generate(this.Source.ItemSpec, this.OutputFile);
-
-				if (!result)
-				{
-					File.SetLastWriteTime(OutputFile, DateTime.Now);
-					Log.LogMessage($"Skipping generation of {OutputFile} because there is not relevant change in {Source.ItemSpec}.");
-				}
-
+				layoutGen.Generate(this.Source.ItemSpec, this.OutputFile);
 				return true;
 			}
 
