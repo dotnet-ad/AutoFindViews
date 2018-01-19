@@ -19,6 +19,15 @@
 
 			this.Layout.myButton.Click += delegate { this.Layout.myButton.Text = $"{count++} clicks!"; };
 		}
+
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				Layout.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 	}
 }
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,14 +52,7 @@
     <Compile Include="Generators\LayoutHolderGenerator.cs" />
     <Compile Include="Generators\LayoutRootGenerator.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Configurations\" />
-    <Folder Include="Mapping\" />
-    <Folder Include="Declarations\" />
-    <Folder Include="Generators\" />
-    <Folder Include="Generators\Templates\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Generators\Templates\LayoutHolder_Designer_cs.template" />
     <EmbeddedResource Include="Generators\Templates\Layouts_Designer_cs.template" />

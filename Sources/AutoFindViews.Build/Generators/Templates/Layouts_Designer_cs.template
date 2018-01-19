@@ -3,7 +3,7 @@
     using System;
 
     [System.CodeDom.Compiler.GeneratedCode("AutoFindViews", "0.1.0.0")]
-    public interface ILayoutHolder
+    public interface ILayoutHolder : IDisposable
     {{
         int Identifier {{ get; }}
 
