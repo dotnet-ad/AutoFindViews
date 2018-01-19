@@ -18,6 +18,8 @@ As soon as you added the reference to the [NuGet package](https://www.nuget.org/
 
 **Warning:** auto-completion can be broken (visual studio doesn't reload files at build time), is it occcurs, unload then reload the project.
 
+**Warning:** Don't forget to dispose generated Layout !
+
 ![illustration](Documentation/illustration.png)
 
 ## About

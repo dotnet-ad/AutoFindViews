@@ -8,6 +8,8 @@
         int Identifier {{ get; }}
 
         Android.Views.View Source {{ get; set; }}
+
+		void Dispose();
     }}
 
     [System.CodeDom.Compiler.GeneratedCode("AutoFindViews", "0.1.0.0")]
