@@ -45,12 +45,14 @@
 
 			var fields = new StringBuilder();
 			var properties = new StringBuilder();
+			var disposing = new StringBuilder();
 			foreach (var declaration in declarations)
 			{
 				fields.AppendLine($"\t\t// L{declaration.Line}: {declaration.Source}");
 				fields.AppendLine($"\t\tprivate {declaration.Type} _{declaration.Id};\n");
 				properties.AppendLine($"\t\t// L{declaration.Line}: {declaration.Source}");
 				properties.Append($"\t\tpublic {declaration.Type} {declaration.Id} => _{declaration.Id} ?? (_{declaration.Id} = ");
+				disposing.AppendLine($"\t\t\t_{declaration.Id}?.Dispose();");
 
 				if (declaration.IsInclude)
 				{
@@ -60,10 +62,9 @@
 				{
 					properties.AppendLine($"Source.FindViewById<{declaration.Type}>(Resource.Id.{declaration.Id}));\n");
 				}
-
 			}
 
-			content = string.Format(content, nspace, name, classname, fields, properties);
+			content = string.Format(content, nspace, name, classname, fields, properties, disposing);
 
 			return FileHelper.WriteIfDifferent(outputPath, content);
 		}

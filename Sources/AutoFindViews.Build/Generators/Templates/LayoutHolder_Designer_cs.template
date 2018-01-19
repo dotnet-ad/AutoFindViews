@@ -22,5 +22,10 @@
         {{
             this.Source = source;
         }}
+
+        public void Dispose()
+        {{
+{5}
+        }}
     }}
 }}
