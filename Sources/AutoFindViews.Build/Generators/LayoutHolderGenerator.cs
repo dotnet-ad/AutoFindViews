@@ -37,10 +37,12 @@
 
 			var name = Path.GetFileNameWithoutExtension(inputPath);
 			var classname = CreateClassName(name);
+
 			if (File.Exists(outputPath))
-				         {
+			{
 				File.Delete(outputPath);
-				           }
+			}
+
 			var content = Templates.LoadTemplate(template);
 
 			var declarations = ViewPropertyDeclaration.ParseDeclarations(xml, mapper);
@@ -68,7 +70,7 @@
 			}
 
 			content = string.Format(content, nspace, name, classname, fields, properties, disposing);
-			File.WriteAllText(outputPath,content);
+			File.WriteAllText(outputPath, content);
 
 			return true;
 		}
