@@ -53,6 +53,7 @@
 				properties.AppendLine($"\t\t// L{declaration.Line}: {declaration.Source}");
 				properties.Append($"\t\tpublic {declaration.Type} {declaration.Id} => _{declaration.Id} ?? (_{declaration.Id} = ");
 				disposing.AppendLine($"\t\t\t_{declaration.Id}?.Dispose();");
+				disposing.AppendLine($"\t\t\t_{declaration.Id}=null;");
 
 				if (declaration.IsInclude)
 				{

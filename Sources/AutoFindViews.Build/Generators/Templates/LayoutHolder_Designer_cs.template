@@ -25,7 +25,8 @@
 
         public void Dispose()
         {{
-{5}
-        }}
+            Source?.Dispose();
+            Source=null;
+{5}     }}
     }}
 }}
